@@ -1,0 +1,107 @@
+<html>
+<body>
+  <h3>Open console log</h3>
+  <button onClick="bowling()">Empezar</button>
+<script>
+alert("Open console log");
+
+function bowling(){
+var a;
+var b;
+var suma;
+var total = 0;
+var flag = false;
+var extra = false;
+var strike1 = false;
+var strike2 = false;
+var num1; 
+var num2; 
+
+
+for(i=0;i<10;i++){
+	num1 = prompt("Primer numero:");
+	if (num1 === null) {
+        return;
+    }
+	a = parseInt(num1);
+	console.log("primero: "+a);
+	if (flag == true){
+		total += a;
+		console.log("total: "+total);
+		flag = false;
+		if(extra == true){
+			break;
+		}
+	}
+	if (strike1 == true) {
+		total += a;
+		if (strike2 == true) {
+			console.log("total: "+total);
+			total += a;
+			total += a;
+			strike2 = false;
+		}
+
+	}
+	if(extra == true){
+		num2 = prompt("Segundo numero:");
+		if (num2 === null) {
+        return;
+    }
+		b = parseInt(num2);
+		console.log("segundo: "+b);
+		total += b;
+	    console.log("total: "+total);
+	    break;
+		}
+	else{
+	if(a == 10){
+		b = 0;
+		if(strike1 == true){
+			strike2 = true;
+		}
+		else{
+			strike1 = true;
+			total += a;
+		}
+	    if(i == 9){
+			   i -= 1
+			   extra = true;
+		   }
+	}
+	else{
+		num2 = prompt("Segundo numero:");
+		if (num2 === null) {
+        return;
+    }
+		b = parseInt(num2);
+	    console.log("segundo: "+b);
+	    if (strike1 == true) {
+	    	total += b;
+	    	console.log("total: "+total);
+	    	strike1 = false;
+	    }
+	    if(extra == true){
+			break;
+		}
+		suma = a+b;
+	    total += suma;
+	    if(suma == 10){
+		   flag = true;
+		   if(i == 9){
+			   i -= 1
+			   extra = true;
+		   }
+	   }
+	   else{
+		   console.log("total: "+total);
+	   }
+	}
+}
+	
+}
+}
+  </script>
+</form>
+</body>
+</html>
